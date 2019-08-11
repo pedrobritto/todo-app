@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { initTodoStore, getStoreTodos, setStoreTodos } from "./helpers";
+import { initTodoStore, cleanTodoStore, getStoreTodos, setStoreTodos } from "./helpers";
 
 import TodoInput from "components/TodoInput";
 import TodoList from "components/TodoList";
@@ -54,7 +54,12 @@ const TodoContainer = () => {
 
   return (
     <div className="TodoContainer">
-      <TodoInput handleInput={handleInput} inputValue={inputValue} handleSubmit={handleSubmit} />
+      <TodoInput
+        handleInput={handleInput}
+        inputValue={inputValue}
+        handleSubmit={handleSubmit}
+        resetTodos={cleanTodoStore}
+      />
       <TodoList todos={todos} handleRemoveItem={handleRemoveItem} />
     </div>
   );

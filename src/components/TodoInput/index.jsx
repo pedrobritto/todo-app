@@ -1,7 +1,7 @@
 import React from "react";
 
 const TodoInput = props => {
-  const { handleInput, inputValue, handleSubmit } = props;
+  const { handleInput, inputValue, handleSubmit, resetTodos } = props;
 
   return (
     <div className="TodoInput__container">
@@ -13,9 +13,18 @@ const TodoInput = props => {
           onChange={handleInput}
           placeholder="What you want to do now?"
         />
-        <button type="submit" className="TodoInput__button" onClick={handleSubmit}>
-          Add new todo
-        </button>
+
+        <div>
+          <button type="submit" className="TodoInput__button" onClick={handleSubmit}>
+            Add new todo
+          </button>
+        </div>
+
+        <div>
+          <button type="button" className="TodoInput__clean-button" onClick={resetTodos}>
+            Clean Todos
+          </button>
+        </div>
       </form>
     </div>
   );
