@@ -47,14 +47,14 @@ const TodoContainer = () => {
 
     todosCopy[clickedTodoIndex].completed = !todosCopy[clickedTodoIndex].completed;
     setTodos(todosCopy);
-
-    localStorage.removeItem("todos");
     setStoreTodos(todosCopy);
   };
 
-  const handleRemoveAll = () => {
-    cleanTodoStore();
-    setTodos([]);
+  const handleRemoveCompleted = () => {
+    const incompleteTodos = todos.filter(todo => !todo.completed);
+
+    setTodos(incompleteTodos);
+    setStoreTodos(incompleteTodos);
   };
 
   return (
@@ -67,7 +67,11 @@ const TodoContainer = () => {
       </h1>
 
       <TodoInput handleInput={handleInput} inputValue={inputValue} handleSubmit={handleSubmit} />
-      <TodoList todos={todos} handleRemoveItem={handleRemoveItem} resetTodos={handleRemoveAll} />
+      <TodoList
+        todos={todos}
+        handleRemoveItem={handleRemoveItem}
+        handleRemoveCompleted={handleRemoveCompleted}
+      />
     </div>
   );
 };

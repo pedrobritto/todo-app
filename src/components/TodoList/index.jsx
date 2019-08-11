@@ -1,11 +1,12 @@
 import React from "react";
 
+import "./style.scss";
 import cx from "classnames";
 
 import UICheckbox from "components/UI/Checkbox";
 
 const TodoList = props => {
-  const { todos, handleRemoveItem, resetTodos } = props;
+  const { todos, handleRemoveItem, handleRemoveCompleted } = props;
 
   const incompleteTodos = todos.filter(todo => todo.completed === false);
   const completeTodos = todos.filter(todo => todo.completed === true);
@@ -23,7 +24,7 @@ const TodoList = props => {
           {completeTodos.length > 0 && (
             <React.Fragment>
               <h3>Completed tasks</h3>
-              <button className="TodoInput__clean-button" onClick={resetTodos}>
+              <button className="TodoInput__clean-button" onClick={handleRemoveCompleted}>
                 Remove completed Todos
               </button>
             </React.Fragment>

@@ -21,12 +21,6 @@ const TodoInput = props => {
             Add new todo
           </button>
         </div>
-
-        <div>
-          <button type="button" className="TodoInput__clean-button">
-            Clean Todos
-          </button>
-        </div>
       </form>
     </div>
   );
