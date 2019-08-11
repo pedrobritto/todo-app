@@ -1,0 +1,5 @@
+// Retorna valor percentual de uma proporção numérica.
+
+@function responsive-ratio-calculation($x, $y) {
+    @return unquote(($y / $x) * 100 + "%");
+}

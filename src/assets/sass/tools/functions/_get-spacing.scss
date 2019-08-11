@@ -1,0 +1,7 @@
+@function get-spacing($spacing-name) {
+    @if map-has-key($spacing, $spacing-name) {
+        @return map-get($spacing, $spacing-name);
+    } @else {
+        @error 'O espaçamento ' + $spacing-name + ' não existe no map $spacing.';
+    }
+}

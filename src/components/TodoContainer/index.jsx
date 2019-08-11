@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import "./style.scss";
+
 import { initTodoStore, getStoreTodos, setStoreTodos } from "./helpers";
 
 import TodoInput from "components/TodoInput";
@@ -31,7 +33,7 @@ const TodoContainer = () => {
       {
         id: String(Date.now()),
         todo: inputValue,
-        complete: false
+        completed: false
       }
     ];
 
@@ -39,23 +41,49 @@ const TodoContainer = () => {
     setStoreTodos(updatedTodos);
   };
 
-  const handleRemoveItem = event => {
+  const handleCheckItem = event => {
     const clickedItem = event.target.closest("li");
     const clickedItemId = clickedItem.id;
     const clickedTodoIndex = todos.findIndex(todo => todo.id === clickedItemId);
     const todosCopy = [...todos];
 
-    todosCopy[clickedTodoIndex].complete = !todosCopy[clickedTodoIndex].complete;
+    todosCopy[clickedTodoIndex].completed = !todosCopy[clickedTodoIndex].completed;
     setTodos(todosCopy);
+    setStoreTodos(todosCopy);
+  };
 
-    localStorage.removeItem("todos");
-    localStorage.setItem("todos", JSON.stringify(todosCopy));
+  const handleRemoveCompleted = () => {
+    const incompleteTodos = todos.filter(todo => !todo.completed);
+
+    setTodos(incompleteTodos);
+    setStoreTodos(incompleteTodos);
+  };
+
+  const handleRemoveClickedItem = event => {
+    const clickedItem = event.target.closest("li");
+    const clickedItemId = clickedItem.id;
+    const remainingTodos = todos.filter(todo => todo.id !== clickedItemId);
+
+    setTodos(remainingTodos);
+    setStoreTodos(remainingTodos);
   };
 
   return (
     <div className="TodoContainer">
+      <h1 className="TodoContainer__title">
+        <span role="img" aria-label="Note emoji">
+          📝
+        </span>{" "}
+        Simple Todo App
+      </h1>
+
       <TodoInput handleInput={handleInput} inputValue={inputValue} handleSubmit={handleSubmit} />
-      <TodoList todos={todos} handleRemoveItem={handleRemoveItem} />
+      <TodoList
+        todos={todos}
+        handleCheckItem={handleCheckItem}
+        handleRemoveCompleted={handleRemoveCompleted}
+        handleRemoveClickedItem={handleRemoveClickedItem}
+      />
     </div>
   );
 };

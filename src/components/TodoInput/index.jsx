@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./style.scss";
+
 const TodoInput = props => {
   const { handleInput, inputValue, handleSubmit } = props;
 
@@ -13,9 +15,12 @@ const TodoInput = props => {
           onChange={handleInput}
           placeholder="What you want to do now?"
         />
-        <button type="submit" className="TodoInput__button" onClick={handleSubmit}>
-          Add new todo
-        </button>
+
+        <div>
+          <button type="submit" className="TodoInput__button" onClick={handleSubmit}>
+            Add new todo
+          </button>
+        </div>
       </form>
     </div>
   );

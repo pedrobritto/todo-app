@@ -1,0 +1,137 @@
+// Form rows and cols
+@mixin form-col {
+    width: 100%;
+
+    @include media(800px) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+// Form wrapper
+.l-form-wrapper--top {
+    margin-top: 2rem;
+}
+
+.form-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-section-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+}
+
+// Form row
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @include media(800px) {
+        flex-wrap: nowrap;
+    }
+}
+
+.form-row--reverse {
+    flex-direction: row-reverse;
+
+    @include media(800px) {
+        flex-direction: unset;
+    }
+}
+
+// Form col
+.form-col {
+    @include form-col;
+    &:first-of-type {
+        padding-left: 0;
+    }
+    &:last-of-type {
+        padding-right: 0;
+    }
+}
+
+.form-col--2 {
+    @include form-col;
+
+    @include media(800px) {
+        width: calc((2 / 12) * 100%);
+        flex: 0 0;
+        flex-basis: calc((2 / 12) * 100%);
+    }
+}
+
+.form-col--3 {
+    @include form-col;
+
+    @include media(800px) {
+        width: calc((3 / 12) * 100%);
+        flex: 0 0;
+        flex-basis: calc((3 / 12) * 100%);
+    }
+}
+
+.form-col--4 {
+    @include form-col;
+
+    @include media(800px) {
+        width: calc((4 / 12) * 100%);
+        flex: 0 0;
+        flex-basis: calc((4 / 12) * 100%);
+    }
+}
+
+.form-col--5 {
+    @include form-col;
+
+    @include media(800px) {
+        width: calc((5 / 12) * 100%);
+        flex: 0 0;
+        flex-basis: calc((5 / 12) * 100%);
+    }
+}
+
+.form-col--6 {
+    @include form-col;
+
+    @include media(800px) {
+        width: calc((6 / 12) * 100%);
+        flex: 0 0;
+        flex-basis: calc((6 / 12) * 100%);
+    }
+}
+
+.form-col--7 {
+    @include form-col;
+
+    @include media(800px) {
+        width: calc((7 / 12) * 100%);
+        flex: 0 0;
+        flex-basis: calc((7 / 12) * 100%);
+    }
+}
+
+.form-col--8 {
+    @include form-col;
+
+    @include media(800px) {
+        width: calc((8 / 12) * 100%);
+        flex: 0 0;
+        flex-basis: calc((8 / 12) * 100%);
+    }
+}
+
+.form-col--10 {
+    @include form-col;
+
+    @include media(800px) {
+        width: calc((10 / 12) * 100%);
+        flex: 0 0;
+        flex-basis: calc((10 / 12) * 100%);
+    }
+}

@@ -4,6 +4,10 @@ export const initTodoStore = () => {
   }
 };
 
+export const cleanTodoStore = () => {
+  localStorage.setItem("todos", JSON.stringify([]));
+};
+
 export const getStoreTodos = () => {
   return JSON.parse(localStorage.getItem("todos"));
 };

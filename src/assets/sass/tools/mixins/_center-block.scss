@@ -1,0 +1,14 @@
+// Centraliza elementos filhos utilizando margin.
+// Obs: Deve ser utilizada na classe pai.
+//
+// @example:
+//      .classe-pai {
+//          @include center-block;
+//      }
+// @source http://gillesbertaux.com/andy/doc/#mixin-center-block
+
+@mixin center-block() {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

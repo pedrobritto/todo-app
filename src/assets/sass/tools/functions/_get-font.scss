@@ -1,0 +1,7 @@
+@function get-font($font-family-name) {
+    @if map-has-key($font-families, $font-family-name) {
+        @return map-get($font-families, $font-family-name);
+    } @else {
+        @error 'A fonte ' + $font-family-name + ' não existe no map $font-families.';
+    }
+}

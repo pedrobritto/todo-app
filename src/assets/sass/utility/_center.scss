@@ -1,0 +1,23 @@
+.center-absolute {
+    @include center-absolute(both);
+}
+
+.center-absolute-vertical {
+    @include center-absolute(vertical);
+}
+
+.center-absolute-horizontal {
+    @include center-absolute(horizontal);
+}
+
+.center-flex {
+    @include center-flex();
+}
+
+.center-flex-vertical {
+    @include center-flex("vertical");
+}
+
+.center-flex-horizontal {
+    @include center-flex("horizontal");
+}

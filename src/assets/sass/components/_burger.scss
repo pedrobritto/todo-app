@@ -1,0 +1,19 @@
+.burger-icon-container {
+    cursor: pointer;
+    display: block;
+    padding: 0.5em;
+    background-color: goldenrod;
+    border: 0;
+    color: white;
+    @include media(1200px) {
+        display: none;
+    }
+}
+
+.burger-icon {
+    @include burger();
+}
+
+.burger-icon-container.is-active .burger-icon {
+    @include burger-to-cross();
+}

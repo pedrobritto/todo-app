@@ -1,0 +1,23 @@
+// z
+// Gerenciamento de z-index
+//
+// @author pedrobritto
+
+$z-layers: (
+    "modal-box": 22,
+    "modal-bg": 21,
+    "modal": 20,
+    "main-header": 15,
+    "above": 10,
+    "default": 0,
+    "below": -10,
+);
+
+@function z($layer) {
+    @if not map-has-key($z-layers, $layer) {
+        @warn "Nenhuma camada chamada '#{$layer}' encontrada em no mapa $z-layers. Propriedade omitida.";
+        @return null;
+    }
+
+    @return map-get($z-layers, $layer);
+}
