@@ -1,7 +1,8 @@
-$color-primary: #36a3f7;
+@import "tools";
 
 .CheckboxContainer {
   width: 100%;
+  display: flex;
 }
 
 .CheckboxInput {

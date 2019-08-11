@@ -1,3 +1,5 @@
+@import "tools";
+
 .TodoList__container {
   margin-top: 2rem;
 }
@@ -8,14 +10,34 @@
   margin: 0;
 }
 
-.TodoList__list.completed .TodoList__label {
-  opacity: 0.5;
-  text-decoration: line-through;
+.TodoList__list {
+  &.completed {
+    .TodoList__label {
+      opacity: 0.5;
+      text-decoration: line-through;
+    }
+  }
 }
 
 .TodoList__item {
   display: flex;
   padding: 0.5rem 0;
+
+  &:hover {
+    .TodoList__remove {
+      opacity: 1;
+    }
+  }
+}
+
+.TodoList__remove {
+  @include media(800px, max) {
+    opacity: 1;
+  }
+
+  opacity: 0;
+  cursor: pointer;
+  padding-left: 2rem;
 }
 
 .TodoList__input {

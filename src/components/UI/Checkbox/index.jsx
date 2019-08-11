@@ -3,7 +3,7 @@ import React from "react";
 import "./style.scss";
 
 const UICheckbox = props => {
-  const { label, id, defaultChecked } = props;
+  const { label, id, defaultChecked, onChange } = props;
 
   return (
     <div className="CheckboxContainer">
@@ -11,6 +11,7 @@ const UICheckbox = props => {
         className="CheckboxInput TodoList__input"
         id={id}
         type="checkbox"
+        onChange={onChange}
         defaultChecked={defaultChecked}
       />
 

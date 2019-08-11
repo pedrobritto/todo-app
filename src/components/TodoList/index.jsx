@@ -6,7 +6,7 @@ import cx from "classnames";
 import UICheckbox from "components/UI/Checkbox";
 
 const TodoList = props => {
-  const { todos, handleRemoveItem, handleRemoveCompleted } = props;
+  const { todos, handleCheckItem, handleRemoveCompleted, handleRemoveClickedItem } = props;
 
   const incompleteTodos = todos.filter(todo => todo.completed === false);
   const completeTodos = todos.filter(todo => todo.completed === true);
@@ -23,7 +23,11 @@ const TodoList = props => {
             </header>
           )}
 
-          <RenderTodoList todos={incompleteTodos} handleRemoveItem={handleRemoveItem} />
+          <RenderTodoList
+            todos={incompleteTodos}
+            handleCheckItem={handleCheckItem}
+            handleRemoveClickedItem={handleRemoveClickedItem}
+          />
 
           {incompleteTodos.length > 0 && completeTodos.length > 0 && <div className="Separator" />}
 
@@ -39,7 +43,8 @@ const TodoList = props => {
           <RenderTodoList
             className="completed"
             todos={completeTodos}
-            handleRemoveItem={handleRemoveItem}
+            handleCheckItem={handleCheckItem}
+            handleRemoveClickedItem={handleRemoveClickedItem}
           />
         </React.Fragment>
       ) : (
@@ -54,7 +59,12 @@ const TodoList = props => {
   );
 };
 
-const RenderTodoList = ({ todos = [], handleRemoveItem, className = "" }) => {
+const RenderTodoList = ({
+  todos = [],
+  className = "",
+  handleCheckItem,
+  handleRemoveClickedItem
+}) => {
   const listCx = cx("TodoList__list", className);
 
   return (
@@ -65,14 +75,18 @@ const RenderTodoList = ({ todos = [], handleRemoveItem, className = "" }) => {
             className="TodoList__item"
             key={todo.id}
             id={todo.id}
-            onClick={handleRemoveItem}
             completed={todo.completed.toString()}
           >
             <UICheckbox
               label={todo.todo}
               id={`todo-${todo.id}-input`}
               defaultChecked={todo.completed}
+              onChange={handleCheckItem}
             />
+
+            <div className="TodoList__remove" onClick={handleRemoveClickedItem}>
+              &#x02A2F;
+            </div>
           </li>
         );
       })}
