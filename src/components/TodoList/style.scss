@@ -32,3 +32,28 @@
   color: #aaa;
   text-align: center;
 }
+
+.completed-todos__header {
+  margin-bottom: 2rem;
+}
+
+.completed-todos__title {
+  margin-bottom: 0;
+}
+
+.completed-todos__button {
+  border: 0;
+  border-radius: 3px;
+
+  color: #36a3f7;
+  background-color: transparent;
+  font-size: 1.4rem;
+  font-family: inherit;
+  line-height: 1.2;
+
+  padding: 0;
+  transition: 0.2s;
+  cursor: pointer;
+
+  text-decoration: underline;
+}

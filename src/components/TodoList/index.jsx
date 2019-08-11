@@ -17,17 +17,23 @@ const TodoList = props => {
     <div className="TodoList__container">
       {hasTodos ? (
         <React.Fragment>
+          {incompleteTodos.length > 0 && (
+            <header className="completed-todos__header">
+              <h3 className="completed-todos__title">Todo tasks</h3>
+            </header>
+          )}
+
           <RenderTodoList todos={incompleteTodos} handleRemoveItem={handleRemoveItem} />
 
           {incompleteTodos.length > 0 && completeTodos.length > 0 && <div className="Separator" />}
 
           {completeTodos.length > 0 && (
-            <React.Fragment>
-              <h3>Completed tasks</h3>
-              <button className="TodoInput__clean-button" onClick={handleRemoveCompleted}>
-                Remove completed Todos
+            <header className="completed-todos__header">
+              <h3 className="completed-todos__title">Completed tasks</h3>
+              <button className="completed-todos__button" onClick={handleRemoveCompleted}>
+                Remove completed tasks
               </button>
-            </React.Fragment>
+            </header>
           )}
 
           <RenderTodoList

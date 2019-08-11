@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { initTodoStore, cleanTodoStore, getStoreTodos, setStoreTodos } from "./helpers";
+import { initTodoStore, getStoreTodos, setStoreTodos } from "./helpers";
 
 import TodoInput from "components/TodoInput";
 import TodoList from "components/TodoList";
