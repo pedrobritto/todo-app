@@ -1,0 +1,65 @@
+$color-primary: #36a3f7;
+
+.CheckboxContainer {
+  width: 100%;
+}
+
+.CheckboxInput {
+  opacity: 0;
+  position: absolute;
+
+  &:checked + .CheckboxLabel {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &:focus + .CheckboxLabel {
+    &::before {
+      border: 2px solid rgba($color-primary, 1);
+    }
+  }
+}
+
+.CheckboxLabel {
+  position: relative;
+  padding-left: 3rem;
+
+  &::before,
+  &::after {
+    position: absolute;
+  }
+
+  // Box
+  &::before {
+    content: "";
+    display: inline-block;
+
+    height: 1.8rem;
+    width: 1.8rem;
+
+    background-color: #fff;
+    border: 2px solid rgba(#000, 0.1);
+    border-radius: 2px;
+    transition: 0.15s;
+
+    top: 2px;
+    left: 0;
+  }
+
+  // Checkmark
+  &::after {
+    content: "\f00c";
+    font-family: "Font awesome 5 free";
+    color: #333;
+
+    opacity: 0;
+    transition: 0.15s;
+
+    display: inline-block;
+    left: 4px;
+    top: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+}

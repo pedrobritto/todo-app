@@ -41,7 +41,7 @@ code {
 }
 
 .TodoInput__input {
-  border: 1px solid #ddd;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   height: 4rem;
   width: 100%;

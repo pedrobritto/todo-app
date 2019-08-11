@@ -1,5 +1,11 @@
 import React from "react";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+
 import TodoContainer from "components/TodoContainer";
+
+library.add(faCheck);
 
 function App() {
   return (

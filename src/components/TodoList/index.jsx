@@ -1,4 +1,5 @@
 import React from "react";
+import UICheckbox from "components/UI/Checkbox";
 
 const TodoList = props => {
   const { todos, handleRemoveItem } = props;
@@ -18,10 +19,7 @@ const TodoList = props => {
                 onClick={handleRemoveItem}
                 complete={todo.complete.toString()}
               >
-                <input className="TodoList__input" id={`todo-${todo.id}-input`} type="checkbox" />
-                <label className="TodoList__label" htmlFor={`todo-${todo.id}-input`}>
-                  {todo.todo}
-                </label>
+                <UICheckbox label={todo.todo} id={`todo-${todo.id}-input`} />
               </li>
             );
           })}
