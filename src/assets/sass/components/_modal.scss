@@ -1,0 +1,117 @@
+.Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    overflow: auto;
+    transition: 0.2s;
+    z-index: 30;
+    opacity: 0;
+    visibility: hidden;
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    &.small {
+        .Modal-header {
+            padding-bottom: 1.5rem;
+        }
+        .Modal-title {
+            font-size: 1.8rem;
+        }
+        .Modal-close {
+            width: 1.8rem;
+        }
+        .Modal-box {
+            max-width: 40rem;
+        }
+    }
+}
+
+.Modal {
+    .Modal-box {
+        transition: 0.2s;
+        transform: translate3d(0, -3rem, 0);
+    }
+}
+
+.Modal.is-active {
+    .Modal-box {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.Modal-bg {
+    background-color: rgba(black, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 31;
+}
+
+.Modal-box {
+    background-color: white;
+    position: relative;
+    z-index: 32;
+    padding: 2rem;
+    margin: auto;
+    border-radius: 4px;
+    box-shadow: 0 3px 10px rgba(black, 0.2);
+    max-width: 82rem;
+    width: 100%;
+}
+
+.Modal-header {
+    border-bottom: 1px solid #d8d8d8;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include media(700px) {
+        padding-bottom: 2rem;
+    }
+}
+
+.Modal-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+    @include media(700px) {
+        font-size: 2.4rem;
+    }
+}
+
+.Modal-close {
+    cursor: pointer;
+    width: 1.8rem;
+    @include media(700px) {
+        width: 2rem;
+    }
+}
+
+.Modal-forgot-password,
+.Modal-confirmation {
+    text-align: center;
+    .Modal-content {
+        margin: 2rem 0 0;
+    }
+}
+
+.Modal-forgot-password__text,
+.Modal-confirmation__text-container {
+    margin-bottom: 3rem;
+    line-height: 1.2;
+    font-size: 1.6rem;
+    color: get-color(text-muted);
+    font-weight: 600;
+}

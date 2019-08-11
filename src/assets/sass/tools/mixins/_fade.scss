@@ -1,0 +1,22 @@
+// Esconde ou revela um elemento.
+//
+// @example:
+//      .class {
+//          @include fade('hide');
+//      }
+//
+//      .class.is-active {
+//          @include fade('show');
+//      }
+
+@mixin fade($type, $transition: 0.2s) {
+    transition: $transition;
+
+    @if ($type== "hide") {
+        visibility: hidden;
+        opacity: 0;
+    } @else if ($type== "show") {
+        visibility: visible;
+        opacity: 1;
+    }
+}

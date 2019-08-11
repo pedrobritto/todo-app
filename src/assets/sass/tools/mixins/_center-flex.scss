@@ -1,0 +1,24 @@
+// Centraliza elementos filhos utilizando flexbox.
+// Obs: Deve ser utilizada na classe pai.
+//
+// @example:
+//      .classe-pai {
+//          @include center-flex;
+//      }
+
+@mixin center-flex($position: null) {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    width: 100%;
+
+    @if $position == "vertical" {
+        align-items: center;
+    } @else if $position == "horizontal" {
+        justify-content: center;
+    } @else {
+        align-items: center;
+        justify-content: center;
+    }
+}

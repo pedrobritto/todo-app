@@ -1,0 +1,18 @@
+// @source https://sass-guidelin.es/pt/
+// Clarear ligeiramente uma cor
+//
+// @param {Color} $color - cor
+// @param {Number} $percentage - percentagem da `$color` na cor retornada
+// @return {Color}
+@function tint($color, $percentage) {
+    @return mix($color, #fff, $percentage);
+}
+
+// Escurecer ligeiramente uma cor
+//
+// @param {Color} $color - cor
+// @param {Number} $percentage - percentagem da `$color` na cor retornada
+// @return {Color}
+@function shade($color, $percentage) {
+    @return mix($color, #000, $percentage);
+}

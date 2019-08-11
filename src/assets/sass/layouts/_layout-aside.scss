@@ -1,0 +1,38 @@
+@mixin layout-aside($break, $asideWidth) {
+    @include media($break) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .layout-aside__col-main {
+        @include media($break) {
+            width: calc(100% - #{$asideWidth});
+            padding-right: 10rem;
+        }
+    }
+
+    .layout-aside__col-aside {
+        margin-top: 3rem;
+
+        @include media($break) {
+            margin-top: 0;
+            width: $asideWidth;
+        }
+    }
+}
+
+.layout-aside {
+    @include layout-aside(1200px, 50rem);
+}
+
+.layout-aside-sm {
+    @include layout-aside(1200px, 35rem);
+}
+
+.layout-aside-md {
+    @include layout-aside(1200px, 45rem);
+}
+
+.layout-aside-lg {
+    @include layout-aside(1200px, 55rem);
+}

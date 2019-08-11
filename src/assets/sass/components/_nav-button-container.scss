@@ -1,0 +1,21 @@
+.nav-button-container {
+    @include media(800px) {
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav-button-item {
+        @include media(800px, max) {
+            margin-bottom: 2rem;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .button {
+            @include media(800px, max) {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+.container {
+    @include container($width: 120rem, $padding: 0 1.5rem);
+}
+
+.container--content {
+    @include container($width: 100rem, $padding: 0);
+}
