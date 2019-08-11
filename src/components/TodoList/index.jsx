@@ -1,8 +1,11 @@
 import React from "react";
+
+import cx from "classnames";
+
 import UICheckbox from "components/UI/Checkbox";
 
 const TodoList = props => {
-  const { todos, handleRemoveItem } = props;
+  const { todos, handleRemoveItem, resetTodos } = props;
 
   const incompleteTodos = todos.filter(todo => todo.completed === false);
   const completeTodos = todos.filter(todo => todo.completed === true);
@@ -15,11 +18,22 @@ const TodoList = props => {
         <React.Fragment>
           <RenderTodoList todos={incompleteTodos} handleRemoveItem={handleRemoveItem} />
 
-          <hr />
+          {incompleteTodos.length > 0 && completeTodos.length > 0 && <div className="Separator" />}
 
-          <h3>Completed tasks</h3>
+          {completeTodos.length > 0 && (
+            <React.Fragment>
+              <h3>Completed tasks</h3>
+              <button className="TodoInput__clean-button" onClick={resetTodos}>
+                Remove completed Todos
+              </button>
+            </React.Fragment>
+          )}
 
-          <RenderTodoList todos={completeTodos} handleRemoveItem={handleRemoveItem} />
+          <RenderTodoList
+            className="completed"
+            todos={completeTodos}
+            handleRemoveItem={handleRemoveItem}
+          />
         </React.Fragment>
       ) : (
         <div className="TodoList__empty">
@@ -33,9 +47,11 @@ const TodoList = props => {
   );
 };
 
-const RenderTodoList = ({ todos, handleRemoveItem }) => {
+const RenderTodoList = ({ todos = [], handleRemoveItem, className = "" }) => {
+  const listCx = cx("TodoList__list", className);
+
   return (
-    <ul className="TodoList__list">
+    <ul className={listCx}>
       {todos.map(todo => {
         return (
           <li

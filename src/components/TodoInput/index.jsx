@@ -1,7 +1,9 @@
 import React from "react";
 
+import "./style.scss";
+
 const TodoInput = props => {
-  const { handleInput, inputValue, handleSubmit, resetTodos } = props;
+  const { handleInput, inputValue, handleSubmit } = props;
 
   return (
     <div className="TodoInput__container">
@@ -21,7 +23,7 @@ const TodoInput = props => {
         </div>
 
         <div>
-          <button type="button" className="TodoInput__clean-button" onClick={resetTodos}>
+          <button type="button" className="TodoInput__clean-button">
             Clean Todos
           </button>
         </div>

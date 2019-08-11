@@ -66,13 +66,8 @@ const TodoContainer = () => {
         Todo App
       </h1>
 
-      <TodoInput
-        handleInput={handleInput}
-        inputValue={inputValue}
-        handleSubmit={handleSubmit}
-        resetTodos={handleRemoveAll}
-      />
-      <TodoList todos={todos} handleRemoveItem={handleRemoveItem} />
+      <TodoInput handleInput={handleInput} inputValue={inputValue} handleSubmit={handleSubmit} />
+      <TodoList todos={todos} handleRemoveItem={handleRemoveItem} resetTodos={handleRemoveAll} />
     </div>
   );
 };

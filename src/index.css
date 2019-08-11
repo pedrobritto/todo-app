@@ -103,6 +103,11 @@ code {
   margin: 0;
 }
 
+.TodoList__list.completed .TodoList__label {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
 .TodoList__item {
   display: flex;
   padding: 0.5rem 0;
@@ -121,4 +126,10 @@ code {
   font-size: 2rem;
   color: #aaa;
   text-align: center;
+}
+
+.Separator {
+  margin: 4rem 0;
+  height: 1px;
+  background-color: #eee;
 }
