@@ -31,7 +31,7 @@ const TodoContainer = () => {
       {
         id: String(Date.now()),
         todo: inputValue,
-        complete: false
+        completed: false
       }
     ];
 
@@ -45,20 +45,32 @@ const TodoContainer = () => {
     const clickedTodoIndex = todos.findIndex(todo => todo.id === clickedItemId);
     const todosCopy = [...todos];
 
-    todosCopy[clickedTodoIndex].complete = !todosCopy[clickedTodoIndex].complete;
+    todosCopy[clickedTodoIndex].completed = !todosCopy[clickedTodoIndex].completed;
     setTodos(todosCopy);
 
     localStorage.removeItem("todos");
-    localStorage.setItem("todos", JSON.stringify(todosCopy));
+    setStoreTodos(todosCopy);
+  };
+
+  const handleRemoveAll = () => {
+    cleanTodoStore();
+    setTodos([]);
   };
 
   return (
     <div className="TodoContainer">
+      <h1>
+        <span role="img" aria-label="Note emoji">
+          📝
+        </span>{" "}
+        Todo App
+      </h1>
+
       <TodoInput
         handleInput={handleInput}
         inputValue={inputValue}
         handleSubmit={handleSubmit}
-        resetTodos={cleanTodoStore}
+        resetTodos={handleRemoveAll}
       />
       <TodoList todos={todos} handleRemoveItem={handleRemoveItem} />
     </div>
