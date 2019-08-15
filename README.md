@@ -90,6 +90,7 @@ Se eu quiser passar a lista de objetos para `<TodoList />`, eu faço assim:
 
 Assim o `<TodoList />` vai conseguir acessar dentro dele o valor de `listaDeObjetos` através do nome `nomeDoProp`, que é realmente só o nome utilizado para identificar tudo que tem dentro de `listaDeObjetos`.
 
-Acredito que escrevi demais, já. Se ainda tiver disposição de ler isso tudo, coloquei alguns comentários explicando trechos de código individuais nos arquivos:
+Acredito que escrevi demais, já. Coloquei alguns comentários explicando trechos de código individuais nos arquivos:
 
--
+- [TodoContainer](https://github.com/pedrobritto/todo-app/blob/bibinha/src/components/TodoContainer/index.jsx)
+- [TodoInput](https://github.com/pedrobritto/todo-app/blob/bibinha/src/components/TodoInput/index.jsx)
